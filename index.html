@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Naga Vasu | Data Science & Web Developer</title>
+
+<meta name="description"
+content="Naga Vasu — Data Science Graduate, Web Developer and AI Enthusiast.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:#050509;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ---------------- BACKGROUND ---------------- */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(95,70,255,.18),transparent 65%);
+    top:-200px;
+    left:-200px;
+    pointer-events:none;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(0,190,255,.12),transparent 65%);
+    bottom:-250px;
+    right:-200px;
+    pointer-events:none;
+    z-index:-2;
+}
+
+/* ---------------- LOADER ---------------- */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#050509;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    animation:loaderOut 1s ease 2.4s forwards;
+}
+
+.loader-text{
+    font-size:clamp(2rem,7vw,5rem);
+    font-weight:800;
+    letter-spacing:8px;
+    animation:loaderText 2s ease;
+}
+
+@keyframes loaderText{
+    0%{
+        opacity:0;
+        transform:translateY(30px);
+        letter-spacing:20px;
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0);
+        letter-spacing:8px;
+    }
+}
+
+@keyframes loaderOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(5,5,9,.55);
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+    font-weight:800;
+    font-size:1.3rem;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#7c6cff;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:.9rem;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* ---------------- GENERAL ---------------- */
+
+section{
+    min-height:100vh;
+    padding:120px 8%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.section-label{
+    color:#8175ff;
+    font-size:.8rem;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:clamp(2rem,5vw,4rem);
+    line-height:1.05;
+    margin-bottom:30px;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+    position:relative;
+    min-height:100vh;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.hero-grid{
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom,black,transparent);
+    z-index:-1;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.small-intro{
+    color:#aaa;
+    font-size:1rem;
+    margin-bottom:20px;
+    animation:fadeUp 1s ease 2.6s both;
+}
+
+.hero h1{
+    font-size:clamp(3.5rem,10vw,8rem);
+    line-height:.9;
+    letter-spacing:-6px;
+    margin-bottom:30px;
+    animation:fadeUp 1s ease 2.8s both;
+}
+
+.gradient-text{
+    background:linear-gradient(90deg,#fff,#8175ff,#55dfff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-description{
+    max-width:650px;
+    color:#999;
+    font-size:1.1rem;
+    line-height:1.8;
+    animation:fadeUp 1s ease 3s both;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+    animation:fadeUp 1s ease 3.2s both;
+}
+
+.btn{
+    padding:15px 25px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#050509;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 40px rgba(255,255,255,.15);
+}
+
+.btn-secondary{
+    border:1px solid #333;
+    color:white;
+}
+
+.btn-secondary:hover{
+    background:#15151d;
+    transform:translateY(-4px);
+}
+
+/* floating orb */
+
+.orb{
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    right:-100px;
+    top:25%;
+    background:radial-gradient(circle at 35% 35%,#9b91ff,#302b72 35%,transparent 70%);
+    filter:blur(20px);
+    opacity:.55;
+    animation:float 7s ease-in-out infinite;
+    z-index:-1;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        transform:translateY(-30px) scale(1.05);
+    }
+}
+
+/* ---------------- ABOUT ---------------- */
+
+.about-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-text{
+    color:#999;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.about-card{
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.025);
+    border-radius:25px;
+    padding:35px;
+    backdrop-filter:blur(15px);
+}
+
+.about-card h3{
+    margin-bottom:20px;
+}
+
+.about-item{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    display:flex;
+    justify-content:space-between;
+    color:#aaa;
+}
+
+.about-item:last-child{
+    border-bottom:none;
+}
+
+/* ---------------- SKILLS ---------------- */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.skill{
+    padding:25px;
+    border:1px solid rgba(255,255,255,.07);
+    background:rgba(255,255,255,.025);
+    border-radius:18px;
+    transition:.4s;
+}
+
+.skill:hover{
+    transform:translateY(-8px);
+    border-color:#6559ff;
+    background:rgba(124,108,255,.08);
+}
+
+.skill-name{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.skill-bar{
+    height:4px;
+    background:#222;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.skill-progress{
+    height:100%;
+    background:linear-gradient(90deg,#6f63ff,#4bdfff);
+    width:0;
+    transition:width 1.5s ease;
+}
+
+/* ---------------- PROJECTS ---------------- */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.project{
+    position:relative;
+    min-height:350px;
+    padding:30px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+    overflow:hidden;
+    transition:.5s;
+}
+
+.project::before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:#6d61ff;
+    filter:blur(100px);
+    opacity:.12;
+    top:-80px;
+    right:-80px;
+}
+
+.project:hover{
+    transform:translateY(-12px);
+    border-color:rgba(124,108,255,.5);
+    box-shadow:0 25px 60px rgba(0,0,0,.4);
+}
+
+.project-number{
+    color:#666;
+    font-size:.8rem;
+}
+
+.project h3{
+    margin-top:70px;
+    font-size:2rem;
+}
+
+.project p{
+    color:#888;
+    line-height:1.7;
+    margin-top:15px;
+}
+
+.project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:20px;
+}
+
+.tag{
+    padding:6px 10px;
+    background:#171720;
+    border-radius:20px;
+    font-size:.7rem;
+    color:#aaa;
+}
+
+/* ---------------- TIMELINE ---------------- */
+
+.timeline{
+    position:relative;
+    max-width:850px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:#333;
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:45px;
+    margin-bottom:50px;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:3px;
+    top:5px;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#8175ff;
+    box-shadow:0 0 20px #8175ff;
+}
+
+.timeline-year{
+    color:#8175ff;
+    font-size:.85rem;
+    margin-bottom:8px;
+}
+
+.timeline-item h3{
+    margin-bottom:8px;
+}
+
+.timeline-item p{
+    color:#888;
+    line-height:1.7;
+}
+
+/* ---------------- CONTACT ---------------- */
+
+.contact{
+    text-align:center;
+    align-items:center;
+}
+
+.contact h2{
+    font-size:clamp(3rem,8vw,7rem);
+    line-height:.95;
+    margin-bottom:30px;
+}
+
+.contact p{
+    color:#888;
+    max-width:600px;
+    line-height:1.8;
+}
+
+.socials{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.social{
+    padding:13px 20px;
+    border:1px solid #333;
+    border-radius:50px;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.social:hover{
+    background:#fff;
+    color:#050509;
+    transform:translateY(-4px);
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+    padding:30px 8%;
+    border-top:1px solid rgba(255,255,255,.06);
+    display:flex;
+    justify-content:space-between;
+    color:#555;
+    font-size:.8rem;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    section{
+        padding:100px 6%;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .orb{
+        width:300px;
+        height:300px;
+        right:-150px;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+    .skills{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .skills{
+        grid-template-columns:1fr;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADING SCREEN -->
+
+<div class="loader">
+    <div class="loader-text">NV</div>
+</div>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        N<span>V</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-grid"></div>
+
+    <div class="orb"></div>
+
+    <div class="hero-content">
+
+        <div class="small-intro">
+            Hello, I'm
+        </div>
+
+        <h1>
+            Naga<br>
+            <span class="gradient-text">Vasu.</span>
+        </h1>
+
+        <p class="hero-description">
+            Data Science Graduate, Web Developer and AI Enthusiast
+            passionate about building useful digital experiences
+            that solve real-world problems.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                Explore My Work
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+                Let's Connect
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about-container reveal">
+
+        <div>
+
+            <div class="section-label">
+                01 — About
+            </div>
+
+            <h2 class="section-title">
+                Turning ideas into<br>
+                <span class="gradient-text">
+                    digital experiences.
+                </span>
+            </h2>
+
+            <p class="about-text">
+
+                I'm Naga Vasu, a recently graduated BTech student
+                specializing in Data Science. I enjoy exploring
+                technology, developing web applications and working
+                with data to create practical solutions.
+
+                <br><br>
+
+                My goal is to continuously learn, build meaningful
+                projects and grow as a technology professional.
+
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <h3>Quick Overview</h3>
+
+            <div class="about-item">
+                <span>Specialization</span>
+                <span>Data Science</span>
+            </div>
+
+            <div class="about-item">
+                <span>Focus</span>
+                <span>Web & AI</span>
+            </div>
+
+            <div class="about-item">
+                <span>Location</span>
+                <span>India</span>
+            </div>
+
+            <div class="about-item">
+                <span>Status</span>
+                <span>Open to Opportunities</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            02 — Skills
+        </div>
+
+        <h2 class="section-title">
+            Tools I work with.
+        </h2>
+
+    </div>
+
+
+    <div class="skills reveal">
+
+        <div class="skill">
+            <div class="skill-name">Python</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">Data Science</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="85%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">Machine Learning</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="80%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">SQL</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="80%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">HTML / CSS</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="75%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">React</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="75%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-name">Git & GitHub</div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-width="85%"></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            03 — Projects
+        </div>
+
+        <h2 class="section-title">
+            Things I've built.
+        </h2>
+
+    </div>
+
+
+    <div class="projects reveal">
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+            <h3>AroSetu</h3>
+
+            <p>
+                A healthcare discovery platform designed to bring
+                hospitals, clinics, labs and healthcare services
+                together in one place.
+            </p>
+
+            <div class="project-tags">
+                <span class="tag">Web Development</span>
+                <span class="tag">AI</span>
+                <span class="tag">Google Maps</span>
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+            <h3>ShopSync</h3>
+
+            <p>
+                A multi-store shopping comparison platform designed
+                to help users compare products, prices, ratings,
+                specifications and availability.
+            </p>
+
+            <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">AI</span>
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+            <h3>SafarGo</h3>
+
+            <p>
+                A travel-focused web application designed to help
+                users plan journeys and discover destinations
+                along their route.
+            </p>
+
+            <div class="project-tags">
+                <span class="tag">Travel</span>
+                <span class="tag">Maps</span>
+                <span class="tag">Web</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            04 — Journey
+        </div>
+
+        <h2 class="section-title">
+            My journey so far.
+        </h2>
+
+    </div>
+
+
+    <div class="timeline reveal">
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                BTech
+            </div>
+
+            <h3>Bachelor of Technology</h3>
+
+            <p>
+                Completed BTech with specialization in
+                Data Science.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                Projects
+            </div>
+
+            <h3>Building Real-World Applications</h3>
+
+            <p>
+                Developed projects focused on healthcare,
+                travel, shopping and AI-powered experiences.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-year">
+                Now
+            </div>
+
+            <h3>Open to Opportunities</h3>
+
+            <p>
+                Looking for opportunities where I can learn,
+                contribute and grow as a technology professional.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="section-label">
+        05 — Contact
+    </div>
+
+    <h2>
+        Let's build<br>
+        <span class="gradient-text">something.</span>
+    </h2>
+
+    <p>
+        I'm open to internships, entry-level opportunities,
+        collaborations and interesting technology projects.
+    </p>
+
+
+    <div class="socials">
+
+        <a
+        class="social"
+        href="https://github.com/Nagavasu31"
+        target="_blank">
+        GitHub
+        </a>
+
+        <a
+        class="social"
+        href="https://www.linkedin.com/in/naga-vasu-2696a1334"
+        target="_blank">
+        LinkedIn
+        </a>
+
+        <a
+        class="social"
+        href="mailto:your-email@example.com">
+        Email
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <span>© 2026 Naga Vasu</span>
+
+    <span>Designed & Built with curiosity.</span>
+
+</footer>
+
+
+<script>
+
+/* ---------------- SCROLL REVEAL ---------------- */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.15
+    }
+);
+
+reveals.forEach(element => {
+    observer.observe(element);
+});
+
+
+/* ---------------- SKILL ANIMATION ---------------- */
+
+const skillBars = document.querySelectorAll(".skill-progress");
+
+const skillObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                const width =
+                    entry.target.getAttribute("data-width");
+
+                entry.target.style.width = width;
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.5
+    }
+);
+
+skillBars.forEach(bar => {
+    skillObserver.observe(bar);
+});
+
+
+/* ---------------- MOUSE PARALLAX ---------------- */
+
+document.addEventListener("mousemove", (event) => {
+
+    const orb = document.querySelector(".orb");
+
+    const x =
+        (window.innerWidth / 2 - event.clientX) / 50;
+
+    const y =
+        (window.innerHeight / 2 - event.clientY) / 50;
+
+    orb.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+</script>
+
+</body>
+</html>
